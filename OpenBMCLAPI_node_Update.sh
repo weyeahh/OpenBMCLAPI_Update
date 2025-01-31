@@ -5,10 +5,6 @@ if [ "$(pwd)" = "/" ]; then
   echo "Error：禁止在根目录运行此脚本 请传递正确的工作目录参数后重试..." >&2
   exit 1
 fi
-if [ "$EUID" -ne 0 ]; then
-  echo "Error：此脚本需要使用 root 用户运行 请切换到 root 用户后重试..." >&2
-  exit 1
-fi
 if [ -z "$1" ]; then
   echo "未指定工作目录，将使用程序当前运行目录。"
   WORK_DIR=$(pwd)
